@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.14' /* 다른 라이브러리들의 버전도 관리해준다. */
+	id 'org.springframework.boot' version '2.7.14' /* 다른 라이브러리들의 버전도 관리해준다. Dependency 뒤에 버전이 없는 라이브러리들은 기본적으로 현재 스프링 버전과 잘 맞는 버전을 세팅해준다. */
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
@@ -26,6 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools' // 재시작 안해도 html 파일 리로딩
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' // JPA 사용할 때 쿼리 파라미터를 출력하게 해주는 외부 라이브러리
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
