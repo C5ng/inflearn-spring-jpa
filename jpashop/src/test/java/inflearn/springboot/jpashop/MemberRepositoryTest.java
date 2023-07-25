@@ -2,33 +2,29 @@ package inflearn.springboot.jpashop;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 //@ExtendWith(SpringExtension.class)
 @SpringBootTest
 class MemberRepositoryTest {
 
     @Autowired
-    MemberRepository memberRepository;
+    MemberRepositoryEx memberRepository;
 
     @Test
     @Transactional /* @Transactional이 테스트에 있으면 테스트가 끝난 후 롤백한다. */
     @Rollback(false) /* @Rollback(false)를 추가하면 롤백되지 않는다. */
     public void testMember() throws Exception {
         //given
-        Member member = new Member();
+        MemberEx member = new MemberEx();
         member.setUsername("memberA");
 
         //when
         Long savedId = memberRepository.save(member);
-        Member findMember = memberRepository.find(savedId);
+        MemberEx findMember = memberRepository.find(savedId);
 
         //then
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
