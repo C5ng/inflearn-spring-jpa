@@ -1,0 +1,21 @@
+spring:
+#  datasource:
+#    url: jdbc:h2:mem:test # In-Memory DB
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+##        show_sql: true System.out? ??
+#        format_sql: true
+
+# 다 없어도 Spring에서 기본적으로 Memory 모드로 실행시킨다.
+
+logging:
+  level:
+    org.hibernate.SQL: debug # log? ?? ? show_sql? ???? ?? ?? ????.
+#    org.hibernate.type: trace # ?? ????? ????.
